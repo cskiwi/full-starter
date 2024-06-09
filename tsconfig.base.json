@@ -15,14 +15,20 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@app/models": ["libs/models/src/index.ts"],
       "@app/backend-root": ["libs/backend/root/src/index.ts"],
       "@app/backend-routes-generator": [
         "libs/backend/routes-generator/src/index.ts"
       ],
-      "@app/backend-test": ["libs/backend/test/src/index.ts"],
+      "@app/backend-authorization": ["libs/backend/authorization/src/index.ts"],
+      "@app/backend-health": ["libs/backend/health/src/index.ts"],
+      "@app/backend-database": ["libs/backend/database/src/index.ts"],
+      "@app/backend-graphql": ["libs/backend/graphql/src/index.ts"],
       "@app/frontend-pages-home": ["libs/frontend/pages/home/src/index.ts"],
       "@app/frontend-root": ["libs/frontend/root/src/index.ts"],
-      "@app/frontend-utils": ["libs/frontend/utils/src/index.ts"]
+      "@app/frontend-utils": ["libs/frontend/utils/src/index.ts"],
+      "@app/frontend-modules-grahql": ["libs/frontend/modules/graphql/src/index.ts"],
+      "@app/frontend-modules-auth": ["libs/frontend/modules/auth/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]

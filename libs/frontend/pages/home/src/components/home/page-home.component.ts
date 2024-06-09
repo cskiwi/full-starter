@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BASE_URL } from '@app/frontend-utils';
+import { Apollo, gql } from 'apollo-angular';
 import { derivedAsync } from 'ngxtension/derived-async';
 
 @Component({
@@ -13,10 +14,18 @@ import { derivedAsync } from 'ngxtension/derived-async';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageHomeComponent {
-  private readonly httpClient = inject(HttpClient);
-  private readonly baseUrl = inject(BASE_URL);
-  
+  private readonly apollo = inject(Apollo);
+
   exampleFetch = derivedAsync(() =>
-    this.httpClient.get(`${this.baseUrl}/api/backend-test`),
+    this.apollo.query({
+      query: gql`
+        query Profile {
+          me {
+            id
+            name
+          }
+        }
+      `,
+    }),
   );
 }
