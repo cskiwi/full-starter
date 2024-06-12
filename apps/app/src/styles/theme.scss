@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '@angular/material' as mat;
 
 /// Defines a dark color theme with success and danger colors.
@@ -7,7 +8,7 @@
 /// @param {Map} $success The success color map.
 /// @param {Map} $danger The danger color map.
 
-@function badman-theme(
+@function define-theme(
   $primary,
   $type: dark,
   $warn: $mat-orange,
@@ -22,7 +23,7 @@
         primary: $primary,
       ),
       density: (
-        scale: $density
+        scale: $density,
       ),
     )
   );
@@ -34,3 +35,25 @@
   );
   @return map-merge($theme, $rest);
 }
+
+$theme-warn: mat.$orange-palette;
+$theme-success: mat.$green-palette;
+$theme-danger: mat.$red-palette;
+
+$dark-theme: define-theme(
+  mat.$blue-palette,
+  dark,
+  $theme-warn,
+  $theme-success,
+  $theme-danger,
+  -2
+);
+
+$light-theme: define-theme(
+  mat.$violet-palette,
+  light,
+  $theme-warn,
+  $theme-success,
+  $theme-danger,
+  -2
+);
