@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { BASE_URL } from '@app/frontend-utils';
 import { Apollo, gql } from 'apollo-angular';
 import { derivedAsync } from 'ngxtension/derived-async';
 
